@@ -81,7 +81,7 @@ def describe_image():
     return response.choices[0].message.content
 
 
-@app.post("/describe_image_post")
+@app.post("/describe_image")
 async def describe_image(question: Question):
     # Check if an image has been received
     if image_base64 is None:
@@ -125,7 +125,7 @@ async def generate_speech(data: Message):
     return Response(audio, media_type='audio/mpeg')
 
 
-@app.get("/describe_image_qns/{question}")
+@app.get("/describe_image/{question}")
 def describe_image(question: str):
     # Check if an image has been received
     if image_base64 is None:
